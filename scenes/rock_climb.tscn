@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0mo2216ub0pd"]
+
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="1_hacn3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pq28t"]
+radius = 0.101921
+height = 0.302217
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ojht"]
+albedo_color = Color(0.724915, 0.215287, 0.241628, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mxn17"]
+material = SubResource("StandardMaterial3D_8ojht")
+radius = 0.1
+height = 0.3
+
+[node name="Rock" instance=ExtResource("1_hacn3")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CapsuleShape3D_pq28t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("CapsuleMesh_mxn17")
